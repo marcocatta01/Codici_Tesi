@@ -1,0 +1,280 @@
+{
+    "simulationMode": "fmu",
+    "simulation": {
+        "fmuPath": "../Assets/Rover.fmu",
+        "timeStep": 0.01,
+        "startTime": 0.0,
+        "stopTime": 0.0,
+        "streamingPort": 8080
+    },
+    
+    "parameters": [
+    { "name": "rover.r_0[1]", "value": 0.000000 },
+    { "name": "rover.r_0[2]", "value": 0.000000 },
+    { "name": "rover.r_0[3]", "value": 0.000000 },    
+
+    { "name": "rover.R.q[1]", "value": 0.000000000 },
+    { "name": "rover.R.q[2]", "value": 0.000000000 },
+    { "name": "rover.R.q[3]", "value": 0.707106781 },
+    { "name": "rover.R.q[4]", "value": 0.707106781 }
+  ],
+
+    "inputConfiguration": {
+        "inputVariables": [
+            {
+                "inputSources": [
+                    {
+                        "sourceId": "multi_var_csv",
+                        "sourceType": "Timeseries",
+                        "timeseriesFilePath": "CSV_Files/simulation_real.csv",
+                        "priority": "Medium",
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": false,
+                "minValue": -1000.0,
+                "maxValue": 1000.0
+            }
+        ],
+        "inputUpdateRate": 10.0,
+        "inputBufferSize": 1.0
+    },
+
+    "visualComponents": [
+    
+    {
+      "name": "rover_body",
+      "frameName": "rover",
+      "type": "Box",
+      "dimensions": { "length": 0.7, "width": 1.0, "height": 0.5 },
+      "rigidTransform": {
+        "translation": [0.0, 0.0, 0.55],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "appearance": { "color": [0.4,0.4,0.4], "opacity": 1.0, "metallic": 0.0, "roughness": 0.8 }
+    },
+
+    {
+      "name": "wheel_FL",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.15, "height": 0.1},
+      "rigidTransform": {
+        "translation": [-0.65, 0.5, 0.15],
+        "rotation": [90.0, 0.0, 0.0]
+      },
+      "appearance": { "color": "yellow", "opacity": 1.0 }
+    },
+    {
+      "name": "wheel_FR",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.15, "height": 0.1 },
+      "rigidTransform": {
+        "translation": [0.65, 0.5, 0.15],
+        "rotation": [90.0, 0.0, 0.0]
+      },
+      "appearance": { "color": "yellow", "opacity": 1.0 }
+    },
+    {
+      "name": "wheel_RL",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.15, "height": 0.1 },
+      "rigidTransform": {
+        "translation": [-0.65, -0.5, 0.15],
+        "rotation": [90.0, 0.0, 0.0]
+      },
+      "appearance": { "color": "yellow", "opacity": 1.0 }
+    },
+    {
+      "name": "wheel_RR",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.15, "height": 0.1 },
+      "rigidTransform": {
+        "translation": [0.65, -0.5, 0.15],
+        "rotation": [90.0, 0.0, 0.0]
+      },
+      "appearance": { "color": "yellow", "opacity": 1.0 }
+    },
+
+    {
+      "name": "sphere_FL",
+      "frameName": "rover",
+      "type": "Sphere",
+      "dimensions": { "radius": 0.05 },
+      "rigidTransform": {
+        "translation": [-0.35, 0.5, 0.30],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "appearance": { "color": [0.7529, 0.7529, 0.7529], "opacity": 1.0 }
+    },
+    {
+      "name": "sphere_FR",
+      "frameName": "rover",
+      "type": "Sphere",
+      "dimensions": { "radius": 0.05 },
+      "rigidTransform": {
+        "translation": [0.35, 0.5, 0.30],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "appearance": { "color": [0.7529, 0.7529, 0.7529], "opacity": 1.0 }
+    },
+    {
+      "name": "sphere_RL",
+      "frameName": "rover",
+      "type": "Sphere",
+      "dimensions": { "radius": 0.05 },
+      "rigidTransform": {
+        "translation": [-0.35, -0.5, 0.30],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "appearance": { "color": [0.7529, 0.7529, 0.7529], "opacity": 1.0 }
+    },
+    {
+      "name": "sphere_RR",
+      "frameName": "rover",
+      "type": "Sphere",
+      "dimensions": { "radius": 0.05 },
+      "rigidTransform": {
+        "translation": [0.35, -0.5, 0.30],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "appearance": { "color": [0.7529, 0.7529, 0.7529], "opacity": 1.0 }
+    },
+
+    {
+      "name": "conjunction_FL",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.0125, "height": 0.335 },
+      "rigidTransform": {
+        "translation": [-0.5, 0.5, 0.225],
+        "rotation": [116.57, 0.0, 0.0]
+      },
+      "appearance": { "color": "blue", "opacity": 1.0 }
+    },
+    {
+      "name": "conjunction_FR",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.0125, "height": 0.335 },
+      "rigidTransform": {
+        "translation": [0.5, 0.5, 0.225],
+        "rotation": [-116.57, 0.0, 0.0]
+      },
+      "appearance": { "color": "blue", "opacity": 1.0 }
+    },
+    {
+      "name": "conjunction_RL",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.0125, "height": 0.335 },
+      "rigidTransform": {
+        "translation": [-0.5, -0.5, 0.225],
+        "rotation": [116.57, 0.0, 0.0]
+      },
+      "appearance": { "color": "blue", "opacity": 1.0 }
+    },
+    {
+      "name": "conjunction_RR",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.0125, "height": 0.335 },
+      "rigidTransform": {
+        "translation": [0.5, -0.5, 0.225],
+        "rotation": [-116.57, 0.0, 0.0]
+      },
+      "appearance": { "color": "blue", "opacity": 1.0 }
+    },
+
+    {
+      "name": "camera_mast",
+      "frameName": "rover",
+      "type": "Cylinder",
+      "dimensions": { "radius": 0.0125, "height": 0.4 },
+      "rigidTransform": {
+        "translation": [0.0, 0.0, 1.0],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "appearance": { "color": "blue", "opacity": 1.0 }
+    },
+    {
+      "name": "camera_box",
+      "frameName": "rover",
+      "type": "Box",
+      "dimensions": { "length": 0.1, "width": 0.1, "height": 0.1 },
+      "rigidTransform": {
+        "translation": [0.0, 0.0, 1.25],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "appearance": { "color": [1.0, 0.0, 1.0], "opacity": 1.0 }
+    },
+    {
+      "name": "camera_frustum",
+      "frameName": "rover",
+      "type": "Cone",
+      "dimensions": { "radius": 0.1, "height": 0.1 },
+      "rigidTransform": {
+        "translation": [0.0, 0.0, 1.25],
+        "rotation": [90.0, 0.0, 0.0]
+      },
+      "appearance": { "color": [1.0, 0.0, 1.0], "opacity": 0.4 }
+    },
+    {
+      "name": "IMU_box",
+      "frameName": "rover",
+      "type": "Box",
+      "dimensions": { "length": 0.2, "width": 0.2, "height": 0.05 },
+      "rigidTransform": {
+        "translation": [0.2, -0.3, 0.825],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "appearance": { "color": [1.0, 0.0, 1.0], "opacity": 0.4 }
+    }
+    ],
+  
+    "sensors": [
+    {
+      "name": "MainCamera",
+      "type": "Camera",
+      "frameName": "rover",
+      "rigidTransform": {
+        "translation": [0.0, 0.0, 1.25],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "parameters": {
+          "resolution": [640, 480],   
+          "fov": 70.0,
+          "nearClipPlane": 0.01,
+          "farClipPlane": 1000.0,
+          "captureRate": 0,
+          "outputPath": "./Saved/Simulation_Marco/MainCamera"
+      }
+    },
+    {
+      "name": "RoverIMU",
+      "type": "IMU",
+      "frameName": "rover",
+      "rigidTransform": {
+        "translation": [0.2, -0.3, 0.825],
+        "rotation": [0.0, 0.0, 0.0]
+      },
+      "parameters": {
+        "rateHz": 10.0,
+        "includeGravity": true,
+        "accelNoiseStd": 3.4323e-4,
+        "gyroNoiseStd": 2.04e-5,
+        "slowmoFact": 10.0,
+        "accelBias": "2.942e-3, 2.942e-3, 2.942e-3",
+        "gyroBias": "4.85e-6, 4.85e-6, 4.85e-6",
+        "accelBiasRW": "3.4323e-4, 3.4323e-4, 3.4323e-4",
+        "gyroBiasRW": "2.04e-5, 2.04e-5, 2.04e-5",
+        "outputPath": "./Saved/Simulation_Marco/IMU"
+      }
+    }
+  ]
+}

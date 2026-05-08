@@ -1,0 +1,450 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "simulationMode",
+        "parameters"
+    ],
+    "properties": {
+        "simulationMode": {
+            "type": "string",
+            "enum": [
+                "fmu",
+                "sequence"
+            ],
+            "description": "Operating mode of the simulation"
+        },
+        "simulation": {
+            "type": "object",
+            "properties": {
+                "fmuPath": {
+                    "type": "string",
+                    "description": "Path to the FMU file (relative to the config file path)"
+                },
+                "timeStep": {
+                    "type": "number",
+                    "minimum": 0.0,
+                    "description": "Fixed timestep for simulation (optional, uses DefaultExperiment from XML if not set)"
+                },
+                "startTime": {
+                    "type": "number",
+                    "default": 0.0,
+                    "description": "Start time for the simulation"
+                },
+                "stopTime": {
+                    "type": "number",
+                    "minimum": 0.0,
+                    "default": 0.0,
+                    "description": "Stop time for the simulation (0 means no limit)"
+                },
+                "streamingPort": {
+                    "type": "integer",
+                    "minimum": 1024,
+                    "maximum": 65535,
+                    "default": 0,
+                    "description": "Port for WebSocket streaming of sensor data (0 to disable streaming)"
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "$parent.simulationMode": {
+                                "const": "fmu"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "fmuPath"
+                        ]
+                    }
+                }
+            ]
+        },
+        "sequence": {
+            "type": "object",
+            "properties": {
+                "sequenceFile": {
+                    "type": "string",
+                    "description": "Path to the camera pose sequence file (relative to the config file path)"
+                },
+                "outputPath": {
+                    "type": "string",
+                    "description": "Path where captured images will be saved"
+                }
+            },
+            "required": [
+                "sequenceFile",
+                "outputPath"
+            ]
+        },
+        "parameters": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "value"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the variable as defined in modelDescription.xml"
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "The initial value for the variable"
+                    },
+                    "componentProperty": {
+                        "type": "string",
+                        "description": "Optional mapping to a component property (for visualization)"
+                    }
+                }
+            }
+        },
+        "visualComponents": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the variable to track"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Sphere",
+                            "Box",
+                            "Cylinder",
+                            "Cone",
+                            "mesh",
+                            "terrain"
+                        ],
+                        "description": "Type of shape to spawn"
+                    },
+                    "meshPath": {
+                        "type": "string",
+                        "description": "Path to the 3D model file (required when type is 'mesh')"
+                    },
+                    "dimensions": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "number"
+                        },
+                        "description": "Dimensions of the shape in meters (for 'mesh' type, use 'scale' parameter for uniform scaling)"
+                    },
+                    "rigidTransform": {
+                        "type": "object",
+                        "properties": {
+                            "translation": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                },
+                                "minItems": 3,
+                                "maxItems": 3,
+                                "description": "Translation vector [x, y, z] in meters"
+                            },
+                            "rotation": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                },
+                                "minItems": 3,
+                                "maxItems": 4,
+                                "description": "Rotation as Euler Angles or quaternion [x, y, z, w]"
+                            }
+                        }
+                    },
+                    "appearance": {
+                        "type": "object",
+                        "properties": {
+                            "color": {
+                                "oneOf": [
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "red",
+                                            "blue",
+                                            "green",
+                                            "yellow",
+                                            "black",
+                                            "white"
+                                        ],
+                                        "description": "Color name (e.g., 'red', 'blue', etc.)"
+                                    },
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 1
+                                        },
+                                        "minItems": 3,
+                                        "maxItems": 4,
+                                        "description": "RGB or RGBA color values (0.0-1.0)"
+                                    }
+                                ]
+                            },
+                            "opacity": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1,
+                                "default": 1.0,
+                                "description": "Opacity of the component (0.0 - 1.0)"
+                            },
+                            "metallic": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1,
+                                "default": 0.0,
+                                "description": "Metallic property (0.0 - 1.0)"
+                            },
+                            "roughness": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 1,
+                                "default": 0.8,
+                                "description": "Roughness property (0.0 - 1.0)"
+                            }
+                        }
+                    }
+                },
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "mesh"
+                                }
+                            }
+                        },
+                        "then": {
+                            "required": [
+                                "meshPath"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "sensors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "type"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Unique identifier for the sensor"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": ["Camera","IMU"],
+                        "description": "Type of sensor"
+                    },
+                    "frameName": {
+                        "type": "string",
+                        "description": "Name of the frame to attach the sensor to"
+                    },
+                    "rigidTransform": {
+                        "type": "object",
+                        "properties": {
+                            "translation": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                },
+                                "minItems": 3,
+                                "maxItems": 3,
+                                "description": "Translation vector [x, y, z] in meters"
+                            },
+                            "rotation": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                },
+                                "minItems": 3,
+                                "maxItems": 4,
+                                "description": "Rotation as Euler angles or quaternion [x, y, z, w]"
+                            }
+                        }
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "description": "Sensor-specific parameters (see conditional schemas below)"
+                    }
+                },
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "enum": ["Camera"]
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "parameters": {
+                                    "type": "object",
+                                    "properties": {
+                                        "resolution": {
+                                            "type": "string",
+                                            "pattern": "^\\d+,\\d+$",
+                                            "description": "Image resolution as 'width,height' in pixels"
+                                        },
+                                        "fov": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 180,
+                                            "description": "Field of view in degrees"
+                                        },
+                                        "nearClipPlane": {
+                                            "type": "number",
+                                            "minimum": 0.001,
+                                            "description": "Near clip plane distance"
+                                        },
+                                        "farClipPlane": {
+                                            "type": "number",
+                                            "minimum": 0.1,
+                                            "description": "Far clip plane distance"
+                                        },
+                                        "captureRate": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "description": "Rate at which to capture images (Hz, 0 = every frame)"
+                                        },
+                                        "outputPath": {
+                                            "type": "string",
+                                            "description": "Path where camera images will be saved (absolute or relative to project root)"
+                                        },
+                                        "requireClientConnection": {
+                                            "type": "boolean",
+                                            "description": "If true, wait for a client before sending data"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "enum": ["IMU"]
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "parameters": {
+                                    "type": "object",
+                                    "properties": {
+                                        "rateHz": {
+                                            "type": "number",
+                                            "minimum": 1,
+                                            "description": "Sampling rate of the IMU in Hz"
+                                        },
+                                        "includeGravity": {
+                                            "type": "boolean",
+                                            "description": "If true the reported acceleration includes gravity"
+                                        },
+                                        "accelNoiseStd": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "description": "Std dev of accelerometer white noise (m/s^2)"
+                                        },
+                                        "gyroNoiseStd": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "description": "Std dev of gyroscope white noise (rad/s)"
+                                        },
+                                        "slowmoFact": {
+                                            "type": "number",
+                                            "minimum": 1,
+                                            "description": "Slow-motion factor applied to the rover motion (gyroxfactor, accelxfactor^2)"
+                                        },
+                                        "accelBias": {
+                                            "type": "string",
+                                            "pattern": "^[-+]?\\d*\\.?\\d+,[-+]?\\d*\\.?\\d+,[-+]?\\d*\\.?\\d+$",
+                                            "description": "Accelerometer bias vector 'bx,by,bz' (m/s^2)"
+                                        },
+                                        "gyroBias": {
+                                            "type": "string",
+                                            "pattern": "^[-+]?\\d*\\.?\\d+,[-+]?\\d*\\.?\\d+,[-+]?\\d*\\.?\\d+$",
+                                            "description": "Gyroscope bias vector 'bx,by,bz' (rad/s)"
+                                        },
+                                        "accelBiasRW": {
+                                            "type": "string",
+                                            "pattern": "^[-+]?\\d*\\.?\\d+,[-+]?\\d*\\.?\\d+,[-+]?\\d*\\.?\\d+$",
+                                            "description": "Accelerometer bias random walk"
+                                        },
+                                        "gyroBiasRW": {
+                                            "type": "string",
+                                            "pattern": "^[-+]?\\d*\\.?\\d+,[-+]?\\d*\\.?\\d+,[-+]?\\d*\\.?\\d+$",
+                                            "description": "Gyroscope bias random walk"
+                                        },
+                                        "outputPath": {
+                                            "type": "string",
+                                            "description": "Path where IMU CSV data will be saved"
+                                        },
+                                        "requireClientConnection": {
+                                            "type": "boolean",
+                                            "description": "If true the sensor waits for a client to stream data"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "dependencies": {
+        "simulationMode": {
+            "oneOf": [
+                {
+                    "properties": {
+                        "simulationMode": {
+                            "enum": [
+                                "fmu"
+                            ]
+                        },
+                        "simulation": {
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "simulation"
+                    ]
+                },
+                {
+                    "properties": {
+                        "simulationMode": {
+                            "enum": [
+                                "sequence"
+                            ]
+                        },
+                        "sequence": {
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "sequence"
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,995 @@
+{
+    "simulationMode": "fmu",
+    "simulation": {
+        "fmuPath": "../Assets/SMS_model.fmu",
+        "timeStep": 0.01,
+        "startTime": 0.0,
+        "stopTime": 0.0,
+        "streamingPort": 8080
+    },
+    "parameters": [
+        {
+            "name": "target_w0[3]",
+            "value": -0.2
+        },
+        {
+            "name": "chaser_r0_LVLH[1]",
+            "value": 20.0
+        },
+        {
+            "name": "chaser_CamFrame_pos[3]",
+            "value": 1.5
+        },
+        {
+            "name": "chaser_CamFrame_rot[2]",
+            "value": -90.0
+        },
+        {
+            "name": "chaser_CamFrame_rot[3]",
+            "value": -90.0
+        },
+        {
+            "name": "chaser_ManipFrame_pos[1]",
+            "value": 1.5
+        },
+        {
+            "name": "chaser_ManipFrame_rot[1]",
+            "value": 90.0
+        },
+        {
+            "name": "chaser_ManipFrame_rot[2]",
+            "value": 90.0
+        },
+        {
+            "name": "chaser_ManipFrame_rot[3]",
+            "value": 90.0
+        },
+        {
+            "name": "chaser_angles0[1]",
+            "value": -1.5707963268
+        },
+        {
+            "name": "chaser_angles0[2]",
+            "value": 1.3962634016
+        },
+        {
+            "name": "chaser_angles0[3]",
+            "value": 0.1745329252
+        },
+        {
+            "name": "chaser_r0_LVLH[1]",
+            "value": 20.0
+        },
+        {
+            "name": "manip_CamFrame_rot[2]",
+            "value": 90.0
+        },
+        {
+            "name": "manip_CamFrame_rot[3]",
+            "value": 90.0
+        },
+        {
+            "name": "q[1]",
+            "value": 0.5
+        },
+        {
+            "name": "q[2]",
+            "value": 0.0
+        },
+        {
+            "name": "q[3]",
+            "value": 0.0
+        },
+        {
+            "name": "q[4]",
+            "value": -0.1
+        },
+        {
+            "name": "q[5]",
+            "value": -0.5
+        },
+        {
+            "name": "q[6]",
+            "value": -1.8
+        },
+        {
+            "name": "q[7]",
+            "value": 0.0
+        }
+    ],
+    "inputConfiguration": {
+        "inputVariables": [
+            {
+                "variableName": "T[1]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_T[1]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_T[1]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -1000.0,
+                "maxValue": 1000.0
+            },
+            {
+                "variableName": "T[2]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_T[2]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_T[2]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -1000.0,
+                "maxValue": 1000.0
+            },
+            {
+                "variableName": "T[3]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_T[3]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_T[3]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -1000.0,
+                "maxValue": 1000.0
+            },
+            {
+                "variableName": "W[1]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_W[1]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_W[1]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -1000.0,
+                "maxValue": 1000.0
+            },
+            {
+                "variableName": "W[2]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_W[2]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_W[2]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -1000.0,
+                "maxValue": 1000.0
+            },
+            {
+                "variableName": "W[3]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_W[3]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_W[3]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -1000.0,
+                "maxValue": 1000.0
+            },
+            {
+                "variableName": "q[1]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_q[1]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_q[1]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.5,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.5,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": false
+            },
+            {
+                "variableName": "q[2]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_q[2]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_q[2]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": false
+            },
+            {
+                "variableName": "q[3]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_q[3]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_q[3]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": false
+            },
+            {
+                "variableName": "q[4]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_q[4]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_q[4]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": -0.1,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": -0.1,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": false
+            },
+            {
+                "variableName": "q[5]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_q[5]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_q[5]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": -0.5,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": -0.5,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": false
+            },
+            {
+                "variableName": "q[6]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_q[6]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_q[6]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": -1.8,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": -1.8,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": false
+            },
+            {
+                "variableName": "q[7]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_q[7]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_q[7]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": false
+            },
+            {
+                "variableName": "qd[1]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qd[1]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qd[1]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -10.0,
+                "maxValue": 10.0
+            },
+            {
+                "variableName": "qd[2]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qd[2]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qd[2]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -10.0,
+                "maxValue": 10.0
+            },
+            {
+                "variableName": "qd[3]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qd[3]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qd[3]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -10.0,
+                "maxValue": 10.0
+            },
+            {
+                "variableName": "qd[4]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qd[4]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qd[4]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -10.0,
+                "maxValue": 10.0
+            },
+            {
+                "variableName": "qd[5]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qd[5]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qd[5]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -10.0,
+                "maxValue": 10.0
+            },
+            {
+                "variableName": "qd[6]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qd[6]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qd[6]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -10.0,
+                "maxValue": 10.0
+            },
+            {
+                "variableName": "qd[7]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qd[7]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qd[7]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -10.0,
+                "maxValue": 10.0
+            },
+            {
+                "variableName": "qdd[1]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qdd[1]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qdd[1]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -100.0,
+                "maxValue": 100.0
+            },
+            {
+                "variableName": "qdd[2]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qdd[2]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qdd[2]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -100.0,
+                "maxValue": 100.0
+            },
+            {
+                "variableName": "qdd[3]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qdd[3]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qdd[3]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -100.0,
+                "maxValue": 100.0
+            },
+            {
+                "variableName": "qdd[4]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qdd[4]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qdd[4]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -100.0,
+                "maxValue": 100.0
+            },
+            {
+                "variableName": "qdd[5]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qdd[5]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qdd[5]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -100.0,
+                "maxValue": 100.0
+            },
+            {
+                "variableName": "qdd[6]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qdd[6]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qdd[6]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -100.0,
+                "maxValue": 100.0
+            },
+            {
+                "variableName": "qdd[7]",
+                "inputSources": [
+                    {
+                        "sourceId": "gnc_qdd[7]",
+                        "sourceType": "WebSocket",
+                        "priority": "High",
+                        "bEnabled": true
+                    },
+                    {
+                        "sourceId": "fallback_qdd[7]",
+                        "sourceType": "Static",
+                        "priority": "Low",
+                        "staticValue": 0.0,
+                        "bEnabled": true
+                    }
+                ],
+                "defaultValue": 0.0,
+                "unitConversionFactor": 1.0,
+                "bClampToRange": true,
+                "minValue": -100.0,
+                "maxValue": 100.0
+            }
+        ]
+    },
+    "visualComponents": [
+        {
+            "name": "target.CM_refFrame",
+            "type": "mesh",
+            "meshPath": "../Assets/Models/trisat.glb",
+            "dimensions": {
+                "scale": 300
+            },
+            "rigidTransform": {
+                "translation": [
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        {
+            "name": "chaser.CM_refFrame",
+            "type": "Box",
+            "dimensions": {
+                "height": 3,
+                "width": 3,
+                "length": 3
+            },
+            "rigidTransform": {
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "appearance": {
+                "color": "blue",
+                "opacity": 1.0,
+                "metallic": 0.0,
+                "roughness": 0.8
+            }
+        },
+        {
+            "name": "chaser.CameraFrame",
+            "type": "cUBe",
+            "dimensions": {
+                "height": 0.5,
+                "width": 0.4,
+                "length": 0.4
+            },
+            "appearance": {
+                "color": [
+                    1.0,
+                    0.0,
+                    1.0
+                ],
+                "opacity": 1.0,
+                "metallic": 0.0,
+                "roughness": 0.8
+            }
+        },
+        {
+            "name": "chaser.CameraFrame",
+            "type": "cone",
+            "dimensions": {
+                "radius": 0.2,
+                "height": 0.7
+            },
+            "rigidTransform": {
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.1
+                ],
+                "rotation": [
+                    90.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "appearance": {
+                "color": [
+                    1.0,
+                    0.0,
+                    1.0
+                ],
+                "opacity": 1.0,
+                "metallic": 0.0,
+                "roughness": 0.8
+            }
+        },
+        {
+            "name": "manipulator.CameraFrame",
+            "type": "cUBe",
+            "dimensions": {
+                "height": 0.5,
+                "width": 0.4,
+                "length": 0.4
+            },
+            "appearance": {
+                "color": [
+                    1.0,
+                    0.0,
+                    1.0
+                ],
+                "opacity": 1.0,
+                "metallic": 0.0,
+                "roughness": 0.8
+            }
+        },
+        {
+            "name": "manipulator.CameraFrame",
+            "type": "cone",
+            "dimensions": {
+                "radius": 0.2,
+                "height": 0.7
+            },
+            "rigidTransform": {
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.1
+                ],
+                "rotation": [
+                    90.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "appearance": {
+                "color": [
+                    1.0,
+                    0.0,
+                    1.0
+                ],
+                "opacity": 1.0,
+                "metallic": 0.0,
+                "roughness": 0.8
+            }
+        },
+        {
+            "name": "manipulator.mechanics.Link_1.CM_frame",
+            "type": "cylinder",
+            "dimensions": {
+                "radius": 0.1,
+                "height": 0.256
+            },
+            "appearance": {
+                "color": "blue"
+            }
+        },
+        {
+            "name": "manipulator.mechanics.Link_2.CM_frame",
+            "type": "cylinder",
+            "dimensions": {
+                "radius": 0.1,
+                "height": 1.774
+            },
+            "appearance": {
+                "color": "blue"
+            }
+        },
+        {
+            "name": "manipulator.mechanics.Link_3.CM_frame",
+            "type": "cylinder",
+            "dimensions": {
+                "radius": 0.1,
+                "height": 0.126
+            },
+            "appearance": {
+                "color": "blue"
+            }
+        },
+        {
+            "name": "manipulator.mechanics.Link_4.CM_frame",
+            "type": "cylinder",
+            "dimensions": {
+                "radius": 0.1,
+                "height": 1.604
+            },
+            "appearance": {
+                "color": "blue"
+            }
+        },
+        {
+            "name": "manipulator.mechanics.Link_5.CM_frame",
+            "type": "cylinder",
+            "dimensions": {
+                "radius": 0.1,
+                "height": 0.126
+            },
+            "appearance": {
+                "color": "blue"
+            }
+        },
+        {
+            "name": "manipulator.mechanics.Link_6.CM_frame",
+            "type": "cylinder",
+            "dimensions": {
+                "radius": 0.1,
+                "height": 0.126
+            },
+            "appearance": {
+                "color": "blue"
+            }
+        },
+        {
+            "name": "manipulator.mechanics.Link_7.CM_frame",
+            "type": "cylinder",
+            "dimensions": {
+                "radius": 0.1,
+                "height": 0.294
+            },
+            "appearance": {
+                "color": "blue"
+            }
+        }
+    ],
+    "sensors": [
+        {
+            "name": "MainCamera",
+            "type": "Camera",
+            "frameName": "chaser.CameraFrame",
+            "rigidTransform": {
+                "translation": [
+                    1.5,
+                    0.5,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "parameters": {
+                "resolution": [
+                    1280,
+                    720
+                ],
+                "fov": 60.0,
+                "nearClipPlane": 0.01,
+                "farClipPlane": 1000.0,
+                "captureRate": 2,
+                "outputPath": "./Saved/CameraImages",
+                "requireClientConnection": true
+            }
+        },
+        {
+            "name": "EECamera",
+            "type": "Camera",
+            "frameName": "manipulator.CameraFrame",
+            "rigidTransform": {
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            },
+            "parameters": {
+                "resolution": [
+                    1280,
+                    720
+                ],
+                "fov": 60.0,
+                "nearClipPlane": 0.01,
+                "farClipPlane": 1000.0,
+                "captureRate": 2,
+                "outputPath": "./Saved/CameraImages",
+                "requireClientConnection": true
+            }
+        }
+    ]
+}

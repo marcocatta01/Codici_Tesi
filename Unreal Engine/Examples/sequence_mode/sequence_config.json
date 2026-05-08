@@ -1,0 +1,88 @@
+{
+    "simulationMode": "sequence",
+    "sequence": {
+        "sequenceFile": "camera_poses.json"
+    },
+    "visualComponents": [
+        {
+            "name": "target.CM_refFrame",
+            "type": "mesh",
+            "meshPath": "../Assets/Models/trisat.glb",
+            "dimensions": {
+                "scale": 200
+            },
+            "rigidTransform": {
+                "translation": [
+                    0.0,
+                    -5.0,
+                    1.0
+                ],
+                "rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        {
+            "name": "static_cube",
+            "type": "Cube",
+            "dimensions": {
+                "width": 2.0,
+                "height": 2.0,
+                "depth": 2.0
+            },
+            "appearance": {
+                "color": "red",
+                "opacity": 1.0,
+                "metallic": 0.0,
+                "roughness": 0.8
+            }
+        },
+        {
+            "name": "static_sphere",
+            "type": "Sphere",
+            "dimensions": {
+                "radius": 1.5
+            },
+            "rigidTransform": {
+                "translation": [
+                    -3.0,
+                    2.0,
+                    2.0
+                ]
+            },
+            "appearance": {
+                "color": "blue",
+                "opacity": 0.8,
+                "metallic": 0.2,
+                "roughness": 0.4
+            }
+        }
+    ],
+    "sensors": [
+        {
+            "name": "main_camera",
+            "type": "Camera",
+            "frameName": "camera_frame",
+            "parameters": {
+                "resolution": "1920,1080",
+                "fov": 90.0,
+                "nearClipPlane": 0.01,
+                "farClipPlane": 100.0,
+                "outputPath": "./Saved/CameraImages_sequence"
+            }
+        },
+        {
+            "name": "secondary_camera",
+            "type": "Camera",
+            "parameters": {
+                "resolution": "1280,1280",
+                "fov": 60.0,
+                "nearClipPlane": 0.01,
+                "farClipPlane": 100.0,
+                "outputPath": "./Saved/CameraImages_sequence"
+            }
+        }
+    ]
+}

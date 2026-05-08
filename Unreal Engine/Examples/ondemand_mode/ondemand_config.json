@@ -1,0 +1,53 @@
+{
+    "simulationMode": "ondemand",
+    "streamingPort": 8080,
+    "visualComponents": [
+        {
+            "name": "target",
+            "type": "Box",
+            "dimensions": {
+                "height": 3,
+                "width": 3,
+                "length": 3
+            },
+            "rigidTransform": {
+                "rotation": [
+                    0.5,
+                    0.5,
+                    0.5,
+                    0.5
+                ]
+            },
+            "appearance": {
+                "color": "red"
+            }
+        }
+    ],
+    "sensors": [
+        {
+            "name": "main_camera",
+            "type": "Camera",
+            "parameters": {
+                "resolution": "1920,1080",
+                "fov": 90.0,
+                "nearClipPlane": 0.01,
+                "farClipPlane": 100.0,
+                "outputPath": "./Saved/CameraImages_ondemand"
+            }
+        },
+        {
+            "name": "secondary_camera",
+            "type": "Camera",
+            "parameters": {
+                "resolution": "1280,720",
+                "fov": 60.0,
+                "nearClipPlane": 0.01,
+                "farClipPlane": 100.0,
+                "outputPath": "./Saved/CameraImages_ondemand"
+            }
+        }
+    ],
+    "ondemand": {
+        "note": "OnDemand mode configuration is minimal - captures are controlled via WebSocket commands"
+    }
+}

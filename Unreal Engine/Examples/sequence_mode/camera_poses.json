@@ -1,0 +1,107 @@
+{
+    "sequences": [
+        {
+            "camera": "main_camera",
+            "poses": [
+                {
+                    "location": {
+                        "x": 10.0,
+                        "y": 20.0,
+                        "z": -1.0
+                    },
+                    "rotation": {
+                        "x": -0.183,
+                        "y": 0.183,
+                        "z": -0.683,
+                        "w": 0.683
+                    },
+                    "timestamp": 0.0,
+                    "metadata": {
+                        "description": "View from northeast"
+                    }
+                },
+                {
+                    "location": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 10.0
+                    },
+                    "rotation": {
+                        "x": -0.408,
+                        "y": 0.408,
+                        "z": 0.577,
+                        "w": 0.577
+                    },
+                    "timestamp": "1.31",
+                    "metadata": {
+                        "description": "Top view"
+                    }
+                },
+                {
+                    "location": {
+                        "x": 1.0,
+                        "y": 0,
+                        "z": -15
+                    },
+                    "rotation": {
+                        "x": 0.408,
+                        "y": -0.408,
+                        "z": 0.577,
+                        "w": 0.577
+                    },
+                    "timestamp": 2.0,
+                    "metadata": {
+                        "description": "Bottom view"
+                    }
+                }
+            ]
+        },
+        {
+            "camera": "secondary_camera",
+            "poses": [
+                {
+                    "location": {
+                        "x": 0.0,
+                        "y": 10.0,
+                        "z": 1.0
+                    },
+                    "rotation": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": -0.707,
+                        "w": 0.707
+                    },
+                    "timestamp": "0.0",
+                    "metadata": {
+                        "description": "View from east"
+                    }
+                },
+                {
+                    "location": {
+                        "x": 20.0,
+                        "y": 0.0,
+                        "z": 0.5
+                    },
+                    "rotation": {
+                        "x": 0.000,
+                        "y": 0.000,
+                        "z": -1.000,
+                        "w": 0.000
+                    },
+                    "timestamp": "1.0",
+                    "metadata": {
+                        "description": "View from far north"
+                    }
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "description": "Example camera sequence",
+        "units": {
+            "location": "meters",
+            "rotation": "quaternion",
+            "time": "seconds"
+        }
+    }
+}
