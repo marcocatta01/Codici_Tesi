@@ -24,9 +24,11 @@ I file contenuti nella cartella sono:
 1. Examples: contiene i file in input
   * Assets: contiene le FMU (Rover.fmu e Rover.mo sono quelli relativi alla tesi);
   * ondemand_mode e sequence_mode: file identici a quelli di PROXSIMA;
-  * closed_loop: contiene i file JSON di configurazione (Simulation_Marco.json è quello relativo alla tesi) e una cartella Trajectory Generation che contiene diversi file per la generazione della traiettoria in input
-2. Source
+  * closed_loop: contiene i file JSON di configurazione (Simulation_Marco.json è quello relativo alla tesi) e una cartella Trajectory Generation che contiene diversi file per la generazione della traiettoria in input.
+2. Source: contiene tutti i file sorgente della simulazione. In questo caso, tutti i file sono stati aggiunti, siccome ci sono state delle modifiche in diversi file. Quindi si consiglia di sostituire interamente la cartella "Source" di PROXSIMA, comunque utilizzabile per confrontare le differenze tra i file (partendo da PROXSIMAGameInstance e dalla cartella Levels).
 3. PROXSIMA.uproject
+
+NB: per questioni di dimensioni dei file, non è inserito il pacchetto RealisticDesertPack (reference), necessario per il caricamento dell'environment. Il pacchetto è scaricaabile direttamente dallo store di UE e, una volta fatto, va inserito nella cartella Content (qui non presente perché l'unico cambiamento è proprio la cartella del pacchetto).
 
 # Python Pipeline
 
