@@ -26,10 +26,10 @@ I file contenuti nella cartella sono:
   * ondemand_mode e sequence_mode: file identici a quelli di PROXSIMA;
   * closed_loop: contiene i file JSON di configurazione (Simulation_Marco.json è quello relativo alla tesi) e una cartella Trajectory Generation che contiene diversi file per la generazione della traiettoria in input.
 2. Source: contiene tutti i file sorgente della simulazione. In questo caso, tutti i file sono stati aggiunti, siccome ci sono state delle modifiche in diversi file. Quindi si consiglia di sostituire interamente la cartella "Source" di PROXSIMA, comunque utilizzabile per confrontare le differenze tra i file (partendo da PROXSIMAGameInstance e dalla cartella Levels).
-3. PROXSIMA.uproject
+3. PROXSIMA.uproject: file del progetto UE. Per poterlo usare correttamente bisogna avere tutti gli altri file scaricati e inseriti nelle cartelle apposite.
 
 NB: per questioni di dimensioni dei file, non è inserito il pacchetto [RealisticDesertPack](https://www.unrealengine.com/marketplace/en-US/product/realistic-desert-pack), necessario per il caricamento dell'environment. Il pacchetto è scaricaabile direttamente dallo store di UE e, una volta fatto, va inserito nella cartella Content (qui non presente perché l'unico cambiamento è proprio la cartella del pacchetto).
 
-# Python Pipeline
+## Python Pipeline
 
 La cartella di Python contiene tutti i file relativi alla ricostruzione del moto e della mappa locale.
