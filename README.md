@@ -15,12 +15,7 @@ Facendo riferimento all'immagine, i diversi software sono così localizzati:
 |Elemento|Software|Posizione|
 |:--:|:--:|:--:|
 |Trajectory|Python|Cartella Unreal Engine|
-|:--:|:--:|:--:|
 |FMU|OpenModelica|Cartella Unreal Engine|
-|:--:|:--:|:--:|
 |Grounding, Environment, Simulation|Unreal Engine|Cartella Unreal Engine|
-|:--:|:--:|:--:|
 |Event Generation|v2e|Non inserito: usata la repo GitHub relativa|
-|:--:|:--:|:--:|
 |Filtering, Sensor Fusion, Optimization|Python|Cartella Python|
-|:--:|:--:|:--:|
