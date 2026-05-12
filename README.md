@@ -19,7 +19,9 @@ Facendo riferimento all'immagine, i diversi software sono così localizzati:
 ## Unreal Engine
 
 La cartella di Unreal Engine contiene tutti i file relativi alla simulazione.  
-La struttura principale è quella del simulatore PROXSIMA [Testo del Link](https://www.google.it)(reference); pertanto, alcuni dei file del simulatore originale, che non hanno subito modifiche, non sono stati inseriti. Si invita quindi ad usare questa repository come aggiunta al simulatore PROXSIMA, andando ad aggiungere o sostituire i file necessari.  
+La struttura principale è quella del simulatore [PROXSIMA]([Niccolò Faraco, Mauro Massari, and Pierluigi Di Lizia. Prox-sima: A modular simulator
+for the validation of in-orbit servicing and close proximity missions gnc techniques.
+10 2024. doi: 10.52202/078367-0029.](https://re.public.polimi.it/handle/11311/1278511)); pertanto, alcuni dei file del simulatore originale, che non hanno subito modifiche, non sono stati inseriti. Si invita quindi ad usare questa repository come aggiunta al simulatore PROXSIMA, andando ad aggiungere o sostituire i file necessari.  
 I file contenuti nella cartella sono:
 1. Examples: contiene i file in input
   * Assets: contiene le FMU (Rover.fmu e Rover.mo sono quelli relativi alla tesi);
