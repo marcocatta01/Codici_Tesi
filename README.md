@@ -28,7 +28,7 @@ I file contenuti nella cartella sono:
 2. Source: contiene tutti i file sorgente della simulazione. In questo caso, tutti i file sono stati aggiunti, siccome ci sono state delle modifiche in diversi file. Quindi si consiglia di sostituire interamente la cartella "Source" di PROXSIMA, comunque utilizzabile per confrontare le differenze tra i file (partendo da PROXSIMAGameInstance e dalla cartella Levels).
 3. PROXSIMA.uproject
 
-NB: per questioni di dimensioni dei file, non è inserito il pacchetto [RealisticDesertPack](Epic Games. Realistic desert pack. https://www.unrealengine.com/marketplace/en-US/product/realistic-desert-pack, 2026. Unreal Engine Marketplace, Free Asset.), necessario per il caricamento dell'environment. Il pacchetto è scaricaabile direttamente dallo store di UE e, una volta fatto, va inserito nella cartella Content (qui non presente perché l'unico cambiamento è proprio la cartella del pacchetto).
+NB: per questioni di dimensioni dei file, non è inserito il pacchetto [RealisticDesertPack](https://www.unrealengine.com/marketplace/en-US/product/realistic-desert-pack), necessario per il caricamento dell'environment. Il pacchetto è scaricaabile direttamente dallo store di UE e, una volta fatto, va inserito nella cartella Content (qui non presente perché l'unico cambiamento è proprio la cartella del pacchetto).
 
 # Python Pipeline
 
